@@ -1,0 +1,16 @@
+{% block title %}Añadir canción{% endblock %}
+
+{% block body %}
+
+    <h1>Añadir canción:</h1>
+
+    {{ form_errors(CancionForm) }}
+
+    {{ form_start(CancionForm) }}
+        {{ form_row(CancionForm.nombre) }}
+        {{ form_row(CancionForm.autor) }}
+        {{ form_row(CancionForm.fecha) }}
+        <button type="submit">Añadir</button>
+    {{ form_end(CancionForm) }}
+
+{% endblock %}

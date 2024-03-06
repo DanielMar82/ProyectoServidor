@@ -1,0 +1,17 @@
+{% block title %}Pág Ver lista canciones{% endblock %}
+{% block body %}
+
+    <a href="../index.html">Volver al Index</a>
+
+    <h1 align="center">Lista de canciones</h1>
+
+    <div align="center">
+        {% for cancion in canciones %}
+            <img src={{ cancion.ruta }} width="100px"><p>{{ cancion.nombre }} - {{ cancion.autor }} - {{ cancion.fecha }}</p>
+            <br />
+            <br />
+            <br />
+        {% endfor %}
+    <div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% block title %}Pág Crear Producto{% endblock %}
+
+{% block body %}
+
+    <h1>Crear producto:</h1>
+
+    {{ form_errors(ProductoForm) }}
+
+    {{ form_start(ProductoForm) }}
+        {{ form_row(ProductoForm.nombre) }}
+        {{ form_row(ProductoForm.descripcion) }}
+        {{ form_row(ProductoForm.marca) }}
+        {{ form_row(ProductoForm.precio) }}
+        {{ form_row(ProductoForm.cantidad) }}
+        <button type="submit">Crear</button>
+    {{ form_end(ProductoForm) }}
+
+{% endblock %}

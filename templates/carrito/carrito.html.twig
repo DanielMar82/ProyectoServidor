@@ -1,0 +1,30 @@
+{% block title %}Pag Carrito{% endblock %}
+
+{% block body %}
+
+    <a href="../index.html">Volver al Index</a>
+    <br />
+    <br />
+
+    <h1 align="center">Carrito</h1>
+
+    <div align="center">
+
+        {% if carrito is empty %}
+            <h1>El carrito está vacio</h1>
+        {% else %}
+            {% for producto in carrito %}
+               <p>{{ producto.nombre }}</p>
+               <label>Cantidad: <input type="number" min="1" max="{{ producto.cantidad }}"></label>
+               <br />
+               <br />
+               <br />
+            {% endfor %}
+        {% endif %}
+
+        <form action="{{ path('carrito_eliminar') }}" method="post">
+                <input type="submit" value="Comprar">
+        </form>
+    <div>
+
+{% endblock %}
