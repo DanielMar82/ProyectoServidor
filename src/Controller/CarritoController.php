@@ -47,9 +47,7 @@ class CarritoController extends AbstractController
 
         $session->set('carrito', $carrito);
 
-        return new Response(
-            'Producto guardado en el carrito con id: '.$productoId
-        );
+        return $this->redirectToRoute('producto_ver');
     }
 
     #[Route('/carrito/eliminar', name: 'carrito_eliminar')]

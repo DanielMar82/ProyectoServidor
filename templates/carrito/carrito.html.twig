@@ -4,6 +4,7 @@
 
     <a href="../index.html">Volver al Index</a>
     <br />
+    <a href="../producto/ver">Volver a la tienda</a>
     <br />
 
     <h1 align="center">Carrito</h1>
@@ -22,7 +23,10 @@
             {% endfor %}
         {% endif %}
 
-        <form action="{{ path('carrito_eliminar') }}" method="post">
+        <form action={{ path('carrito_eliminar') }} method="post">
+                <input type="submit" value="eliminar">
+        </form>
+        <form action={{ path('comprar_carrito') }} method="post">
                 <input type="submit" value="Comprar">
         </form>
     <div>

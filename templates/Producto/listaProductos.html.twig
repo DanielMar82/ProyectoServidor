@@ -12,7 +12,7 @@
         {% for producto in productos %}
             <img src={{ producto.rutaImagen }} width="170px"><p>{{ producto.nombre }} - {{ producto.precio}}€</p> 
             <p>Descripcion: {{producto.descripcion}}</p>
-            <form action="{{ path('carrito_agregar') }}" method="post">
+            <form action={{ path('carrito_agregar') }} method="post">
                 <input type="submit" value="Añadir al carrito">
                 <input type="hidden" name="id_producto" value={{ producto.id }}>
             </form>

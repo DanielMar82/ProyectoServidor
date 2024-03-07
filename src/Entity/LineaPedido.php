@@ -21,6 +21,9 @@ class LineaPedido
     #[ORM\ManyToOne(inversedBy: 'lineaPedidos')]
     private ?Pedido $pedidos = null;
 
+    #[ORM\ManyToOne]
+    private ?Producto $producto = null;
+
     public function __construct()
     {
         $this->productos = new ArrayCollection();
@@ -69,6 +72,18 @@ class LineaPedido
     public function setPedidos(?Pedido $pedidos): static
     {
         $this->pedidos = $pedidos;
+
+        return $this;
+    }
+
+    public function getProducto(): ?Producto
+    {
+        return $this->producto;
+    }
+
+    public function setProducto(?Producto $producto): static
+    {
+        $this->producto = $producto;
 
         return $this;
     }

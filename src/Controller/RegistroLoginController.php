@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Usuario;
 use App\Form\RegistroFormType;
+use App\Repository\UsuarioRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +17,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class RegistroLoginController extends AbstractController
 {
     #[Route('/registro/login', name: 'usuario_registrar' )]
-    public function registrar(AuthenticationUtils $authenticationUtils, Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response {
+    public function registrar(UsuarioRepository $usuarioRepository, AuthenticationUtils $authenticationUtils, Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response {
 
 
         //REGISTRO
@@ -41,6 +42,7 @@ class RegistroLoginController extends AbstractController
         }
 
         //LOGIN
+
         $session = $request->getSession();
 
         $error=$authenticationUtils->getLastAuthenticationError();
