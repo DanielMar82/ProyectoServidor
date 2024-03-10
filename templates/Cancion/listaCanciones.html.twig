@@ -1,17 +1,28 @@
-{% block title %}Pág Ver lista canciones{% endblock %}
-{% block body %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- ESTILOS -->
+        {% block stylesheets %}
+            <link href="{{ asset('index.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+        <title>{% block title %}Pág Ver lista canciones{% endblock %}</title>
+    </head>
+    <body>
+        {% block body %}
 
-    <a href="../index.html">Volver al Index</a>
+            <a href="../index.html">Volver a la página inicial</a>
 
-    <h1 align="center">Lista de canciones</h1>
+            <div class="canciones">
+                <h1>Lista de canciones</h1>
+                {% for cancion in canciones %}
+                    <img src={{ cancion.ruta }}><p>{{ cancion.nombre }} - {{ cancion.autor }} - {{ cancion.fecha }}</p>
+                    <br />
+                    <hr>
+                    <br />
+                    <br />
+                {% endfor %}
+            </div>
 
-    <div align="center">
-        {% for cancion in canciones %}
-            <img src={{ cancion.ruta }} width="100px"><p>{{ cancion.nombre }} - {{ cancion.autor }} - {{ cancion.fecha }}</p>
-            <br />
-            <br />
-            <br />
-        {% endfor %}
-    <div>
-
-{% endblock %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,34 +1,47 @@
-{% block title %}Pag Carrito{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- ESTILOS -->
+        {% block stylesheets %}
+            <link href="{{ asset('index.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+        <title>{% block title %}Pag Carrito{% endblock %}</title>
+    </head>
+    <body>
+        {% block body %}
 
-{% block body %}
+            <a href="../index.html">Volver a la página inicial</a>
+            <br />
+            <br />
+            <a href="../producto/ver">Volver a la tienda</a>
+            <br />
 
-    <a href="../index.html">Volver al Index</a>
-    <br />
-    <a href="../producto/ver">Volver a la tienda</a>
-    <br />
+            <div class="carrito">
+                <h1>Carrito</h1>
 
-    <h1 align="center">Carrito</h1>
+                {% if carrito is empty %}
+                    <h1>El carrito está vacio</h1>
+                {% else %}
+                    {% for producto in carrito %}
+                    <img src={{ producto.imagen }}>
+                    <p>{{ producto.nombre }}</p>
+                    <label>Cantidad: <input type="number" min="1" max="{{ producto.cantidad }}"></label>
+                    <br />
+                    <br />
+                    <hr>
+                    <br />
+                    {% endfor %}
+                {% endif %}
 
-    <div align="center">
+                <form action={{ path('carrito_eliminar') }} method="post">
+                        <input type="submit" value="eliminar">
+                </form>
+                <br />
+                <form action={{ path('comprar_carrito') }} method="post">
+                        <input type="submit" value="Comprar">
+                </form>
+            <div>
 
-        {% if carrito is empty %}
-            <h1>El carrito está vacio</h1>
-        {% else %}
-            {% for producto in carrito %}
-               <p>{{ producto.nombre }}</p>
-               <label>Cantidad: <input type="number" min="1" max="{{ producto.cantidad }}"></label>
-               <br />
-               <br />
-               <br />
-            {% endfor %}
-        {% endif %}
-
-        <form action={{ path('carrito_eliminar') }} method="post">
-                <input type="submit" value="eliminar">
-        </form>
-        <form action={{ path('comprar_carrito') }} method="post">
-                <input type="submit" value="Comprar">
-        </form>
-    <div>
-
-{% endblock %}
+        {% endblock %}
+    </body>
+</html>

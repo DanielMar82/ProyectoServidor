@@ -11,14 +11,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CarritoController extends AbstractController
 {
-    #[Route('/carrito', name: 'app_carrito')]
-    public function index(): Response
-    {
-        return $this->render('carrito/index.html.twig', [
-            'controller_name' => 'CarritoController',
-        ]);
-    }
-
     #[Route('/carrito/ver', name: 'carrito_ver')]
     public function verCarrito(SessionInterface $session): Response{
 
@@ -43,6 +35,7 @@ class CarritoController extends AbstractController
             'nombre' => $producto->getNombre(),
             'precio' => $producto->getPrecio(),
             'cantidad' => $producto->getCantidad(),
+            'imagen' => $producto->getRutaImagen(),
         ];
 
         $session->set('carrito', $carrito);

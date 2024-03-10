@@ -35,20 +35,39 @@ class ComprarController extends AbstractController
     }
 
     #[Route('/comprar/carrito', name: 'comprar_carrito')]
-    public function comprar(AuthenticationUtils $authenticationUtils, Request $request, EntityManagerInterface $entityManager, SessionInterface $session): Response {
+    public function comprar(ProductoRepository $productoRepository, UsuarioRepository $usuarioRepository, AuthenticationUtils $authenticationUtils, Request $request, EntityManagerInterface $entityManager, SessionInterface $session): Response {
         
         // $lastUsername=$authenticationUtils->getLastUsername();
 
         $session = $request->getSession();
 
-        $nombreUser = $session->get("nombreUsuario");
+        $correoUsuario = $session->get("nombreUsuario");
 
-        // $pedido = new Pedido();
-        // $lineaPedido = new LineaPedido();
+        $carrito = $session->get('carrito', []);
+
+        $usuario = $usuarioRepository->findOneBy(['email' => $correoUsuario]);
+        $idUsuario = $usuario->getId();
+        //$nombreUsuario = $usuario->getNombre();
+
+        $pedido = new Pedido();
+        $pedido->setUsuario($usuario);
+
+        foreach($carrito as $productoEnCarrito){
+
+            $producto = $productoRepository->find($productoEnCarrito['id']);
+
+            $lineaPedido = new LineaPedido();
+            $lineaPedido->setPedidos($pedido);
+            $lineaPedido->setProducto($producto);
+            $entityManager->persist($lineaPedido);
+        }
+
+        $entityManager->persist($pedido);
+        $entityManager->flush();
+
+        $carrito = $session->set('carrito', []);
 
 
-        return new Response(
-            "El usuario con id: ". $nombreUser ." a comprado: "
-        );
+        return $this->redirectToRoute('carrito_ver');
     }
 }

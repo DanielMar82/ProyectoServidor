@@ -1,28 +1,33 @@
-{% block title %}Pag Estadisticas{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- ESTILOS -->
+        {% block stylesheets %}
+            <link href="{{ asset('index.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+        <title>{% block title %}Pag Estadisticas{% endblock %}</title>
+        <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/locales/de_DE.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/geodata/germanyLow.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/fonts/notosans-sc.js"></script>
+    </head>
+    <body>
+        {% block body %}
 
-{% block head %}
+            <a href="../index.html">Volver a la página inicial</a>
+<div class="estadisticas">
+  <div id="chartdiv" class"chartdiv">
+    <h1>Cantidades de productos</h1>
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+</div>
 
-    <style>
-        #chartdiv {
-            width: 30%;
-            height: 500px;
-            margin:100px auto;
-        }
-    </style>
-    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/locales/de_DE.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/geodata/germanyLow.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/fonts/notosans-sc.js"></script>
-
-{% endblock %}
-
-{% block body %}
-
-<a href="../index.html">Volver al Index</a>
-<h1 align="center">Cantidades de productos</h1>
-<div id="chartdiv" align="center"></div>
 
 </style>
 
@@ -33,139 +38,141 @@
 
 <!-- Chart code -->
 <script>
-am5.ready(function() {
+  am5.ready(function() {
 
-// Create root element
-// https://www.amcharts.com/docs/v5/getting-started/#Root_element
-var root = am5.Root.new("chartdiv");
-
-
-// Set themes
-// https://www.amcharts.com/docs/v5/concepts/themes/
-root.setThemes([
-  am5themes_Animated.new(root)
-]);
+  // Create root element
+  // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+  var root = am5.Root.new("chartdiv");
 
 
-// Create chart
-// https://www.amcharts.com/docs/v5/charts/xy-chart/
-var chart = root.container.children.push(am5xy.XYChart.new(root, {
-  panX: true,
-  panY: true,
-  wheelX: "panX",
-  wheelY: "zoomX",
-  pinchZoomX: true,
-  paddingLeft:0,
-  layout: root.verticalLayout
-}));
-
-chart.set("colors", am5.ColorSet.new(root, {
-  colors: [
-    am5.color(0x73556E),
-    am5.color(0x9FA1A6),
-    am5.color(0xF2AA6B),
-    am5.color(0xF28F6B),
-    am5.color(0xA95A52),
-    am5.color(0xE35B5D),
-    am5.color(0xFFA446)
-  ]
-}))
-
-// Create axes
-// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-var xRenderer = am5xy.AxisRendererX.new(root, {
-  minGridDistance: 50,
-  minorGridEnabled: true
-});
-
-xRenderer.grid.template.setAll({
-  location: 1
-})
-
-var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
-  maxDeviation: 0.3,
-  categoryField: "producto",
-  renderer: xRenderer,
-  tooltip: am5.Tooltip.new(root, {})
-}));
-
-var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-  maxDeviation: 0.3,
-  min: 0,
-  renderer: am5xy.AxisRendererY.new(root, {
-    strokeOpacity: 0.1
-  })
-}));
+  // Set themes
+  // https://www.amcharts.com/docs/v5/concepts/themes/
+  root.setThemes([
+    am5themes_Animated.new(root)
+  ]);
 
 
-// Create series
-// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-var series = chart.series.push(am5xy.ColumnSeries.new(root, {
-  name: "Series 1",
-  xAxis: xAxis,
-  yAxis: yAxis,
-  valueYField: "cantidad",
-  categoryXField: "producto",
-  tooltip: am5.Tooltip.new(root, {
-    labelText: "{valueY}"
-  }),
-}));
+  // Create chart
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/
+  var chart = root.container.children.push(am5xy.XYChart.new(root, {
+    panX: true,
+    panY: true,
+    wheelX: "panX",
+    wheelY: "zoomX",
+    pinchZoomX: true,
+    paddingLeft:0,
+    layout: root.verticalLayout
+  }));
 
-series.columns.template.setAll({
-  tooltipY: 0,
-  tooltipText: "{categoryX}: {valueY}",
-  shadowOpacity: 0.1,
-  shadowOffsetX: 2,
-  shadowOffsetY: 2,
-  shadowBlur: 1,
-  strokeWidth: 2,
-  stroke: am5.color(0xffffff),
-  shadowColor: am5.color(0x000000),
-  cornerRadiusTL: 50,
-  cornerRadiusTR: 50,
-  fillGradient: am5.LinearGradient.new(root, {
-    stops: [
-      {}, // will use original column color
-      { color: am5.color(0x000000) }
+  chart.set("colors", am5.ColorSet.new(root, {
+    colors: [
+      am5.color(0x73556E),
+      am5.color(0x9FA1A6),
+      am5.color(0xF2AA6B),
+      am5.color(0xF28F6B),
+      am5.color(0xA95A52),
+      am5.color(0xE35B5D),
+      am5.color(0xFFA446)
     ]
-  }),
-  fillPattern: am5.GrainPattern.new(root, {
-    maxOpacity: 0.15,
-    density: 0.5,
-    colors: [am5.color(0x000000), am5.color(0x000000), am5.color(0xffffff)]
+  }))
+
+  // Create axes
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+  var xRenderer = am5xy.AxisRendererX.new(root, {
+    minGridDistance: 50,
+    minorGridEnabled: true
+  });
+
+  xRenderer.grid.template.setAll({
+    location: 1
   })
-});
+
+  var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+    maxDeviation: 0.3,
+    categoryField: "producto",
+    renderer: xRenderer,
+    tooltip: am5.Tooltip.new(root, {})
+  }));
+
+  var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+    maxDeviation: 0.3,
+    min: 0,
+    renderer: am5xy.AxisRendererY.new(root, {
+      strokeOpacity: 0.1
+    })
+  }));
 
 
-series.columns.template.states.create("hover", {
-  shadowOpacity: 1,
-  shadowBlur: 10,
-  cornerRadiusTL: 10,
-  cornerRadiusTR: 10
-})
+  // Create series
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+  var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+    name: "Series 1",
+    xAxis: xAxis,
+    yAxis: yAxis,
+    valueYField: "cantidad",
+    categoryXField: "producto",
+    tooltip: am5.Tooltip.new(root, {
+      labelText: "{valueY}"
+    }),
+  }));
 
-series.columns.template.adapters.add("fill", function (fill, target) {
-  return chart.get("colors").getIndex(series.columns.indexOf(target));
-});
+  series.columns.template.setAll({
+    tooltipY: 0,
+    tooltipText: "{categoryX}: {valueY}",
+    shadowOpacity: 0.1,
+    shadowOffsetX: 2,
+    shadowOffsetY: 2,
+    shadowBlur: 1,
+    strokeWidth: 2,
+    stroke: am5.color(0xffffff),
+    shadowColor: am5.color(0x000000),
+    cornerRadiusTL: 50,
+    cornerRadiusTR: 50,
+    fillGradient: am5.LinearGradient.new(root, {
+      stops: [
+        {}, // will use original column color
+        { color: am5.color(0x000000) }
+      ]
+    }),
+    fillPattern: am5.GrainPattern.new(root, {
+      maxOpacity: 0.15,
+      density: 0.5,
+      colors: [am5.color(0x000000), am5.color(0x000000), am5.color(0xffffff)]
+    })
+  });
 
-//DATOS DE LA BASE DE DATOS
-    var productos = {{ productos|json_encode|raw }};
 
-    var data = [
-        {% for producto in productos %}
-            { producto: "{{ producto.nombre }}", cantidad: {{ producto.cantidad }} },
-        {% endfor %}
-    ];
+  series.columns.template.states.create("hover", {
+    shadowOpacity: 1,
+    shadowBlur: 10,
+    cornerRadiusTL: 10,
+    cornerRadiusTR: 10
+  })
 
-xAxis.data.setAll(data);
-series.data.setAll(data);
+  series.columns.template.adapters.add("fill", function (fill, target) {
+    return chart.get("colors").getIndex(series.columns.indexOf(target));
+  });
 
-// Make stuff animate on load
-// https://www.amcharts.com/docs/v5/concepts/animations/
-series.appear(1000);
-chart.appear(1000, 100);
+  //DATOS DE LA BASE DE DATOS
+      var productos = {{ productos|json_encode|raw }};
 
-}); // end am5.ready()
+      var data = [
+          {% for producto in productos %}
+              { producto: "{{ producto.nombre }}", cantidad: {{ producto.cantidad }} },
+          {% endfor %}
+      ];
+
+  xAxis.data.setAll(data);
+  series.data.setAll(data);
+
+  // Make stuff animate on load
+  // https://www.amcharts.com/docs/v5/concepts/animations/
+  series.appear(1000);
+  chart.appear(1000, 100);
+
+  }); // end am5.ready()
 </script>
 
-{% endblock %}
+        {% endblock %}
+    </body>
+</html>
