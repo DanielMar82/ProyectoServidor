@@ -18,7 +18,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class RegistroLoginController extends AbstractController
 {
     #[Route('/registro/login', name: 'usuario_registrar' )]
-    public function registrar(AuthenticationUtils $authenticationUtils, Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response {
+    public function registrarLogin(AuthenticationUtils $authenticationUtils, Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response {
 
 
         //REGISTRO
@@ -37,9 +37,7 @@ class RegistroLoginController extends AbstractController
             $entityManager->persist($usuario);
             $entityManager->flush();
 
-            return new Response(
-                'Usuario registrado'
-            );
+            return $this->redirectToRoute('index');
         }
 
         //LOGIN

@@ -41,7 +41,7 @@ class CancionController extends AbstractController
     }
 
     #[Route('/cancion/ver', name: 'cancion_ver')]
-    public function verProductos(CancionRepository $cancionRepository): Response {
+    public function verCanciones(CancionRepository $cancionRepository): Response {
 
         $canciones = $cancionRepository->findAll();
 

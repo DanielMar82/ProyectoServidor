@@ -34,9 +34,7 @@ class LoginController extends AbstractController
             $entityManager->persist($usuario);
             $entityManager->flush();
 
-            return new Response(
-                'Usuario registrado'
-            );
+            return $this->redirectToRoute('index');
         }
 
         //LOGIN
@@ -44,12 +42,6 @@ class LoginController extends AbstractController
         $error=$authenticationUtils->getLastAuthenticationError();
 
         $lastUsername=$authenticationUtils->getLastUsername();
-
-        // $session = $request->getSession();
-
-        // $session->set("nombreUsuario", $lastUsername);
-
-        //return new Response("OH DIOS MIO QUIERO PEGARME UN TIRO");
 
         return $this->render('registro_login/registroLogin.html.twig', [
             'RegistroForm' => $form->createView(),
