@@ -12,9 +12,9 @@
             <li><a href="/mapaWeb">Mapa web</a></li>
         </ul>
         {% if app.user and 'ROLE_MANAGER' in app.user.roles %}
-            <h2>
+            <a href="/estadisticas/ver" ><h2>
                 Estadisticas
-            </h2>
+            </h2></a>
         {% else %}
         {% endif %}
         <p class="finalPie">Copyright &copy;2024; Diseñado por: Daniel Martín Ruiz</p>

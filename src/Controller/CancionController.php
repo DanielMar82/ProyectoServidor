@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Cancion;
 use App\Form\CancionFormType;
 use App\Repository\CancionRepository;
+use App\Repository\CancionUsuarioRepository;
 use App\Repository\ComentarioRepository;
 use App\Repository\ComentarioCancionRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -87,46 +88,78 @@ class CancionController extends AbstractController
 
     //LISTAS
     #[Route('/cancion/guitarraAcustica/ver', name: 'cancion_guitarraAcustica_ver')]
-    public function verCancionesGuitarraAcusitca(CancionRepository $cancionRepository): Response {
-
+    public function verCancionesGuitarraAcustica(CancionRepository $cancionRepository, CancionUsuarioRepository $cancionUsuarioRepository): Response
+    {
         $canciones = $cancionRepository->findBy(['instrumento' => 'GuitarraAcustica']);
+        $usuario = $this->getUser();
+
+        $cancionesGuardadas = [];
+        if ($usuario) {
+            foreach ($canciones as $cancion) {
+                $cancionesGuardadas[$cancion->getId()] = $cancionUsuarioRepository->usuarioTieneCancion($usuario, [$cancion]);
+            }
+        }
 
         return $this->render('Cancion/listaCanciones.html.twig', [
-            
             'canciones' => $canciones,
+            'cancionesGuardadas' => $cancionesGuardadas,
         ]);
     }
 
     #[Route('/cancion/guitarraElectrica/ver', name: 'cancion_guitarraElectrica_ver')]
-    public function verCancionesGuitarraElectrica(CancionRepository $cancionRepository): Response {
+    public function verCancionesGuitarraElectrica(CancionRepository $cancionRepository, CancionUsuarioRepository $cancionUsuarioRepository): Response {
 
         $canciones = $cancionRepository->findBy(['instrumento' => 'GuitarraElectrica']);
+        $usuario = $this->getUser();
+
+        $cancionesGuardadas = [];
+        if ($usuario) {
+            foreach ($canciones as $cancion) {
+                $cancionesGuardadas[$cancion->getId()] = $cancionUsuarioRepository->usuarioTieneCancion($usuario, [$cancion]);
+            }
+        }
 
         return $this->render('Cancion/listaCanciones.html.twig', [
-            
             'canciones' => $canciones,
+            'cancionesGuardadas' => $cancionesGuardadas,
         ]);
     }
 
     #[Route('/cancion/bajo/ver', name: 'cancion_bajo_ver')]
-    public function verCancionesBajo(CancionRepository $cancionRepository): Response {
+    public function verCancionesBajo(CancionRepository $cancionRepository, CancionUsuarioRepository $cancionUsuarioRepository): Response {
 
         $canciones = $cancionRepository->findBy(['instrumento' => 'Bajo']);
+        $usuario = $this->getUser();
+
+        $cancionesGuardadas = [];
+        if ($usuario) {
+            foreach ($canciones as $cancion) {
+                $cancionesGuardadas[$cancion->getId()] = $cancionUsuarioRepository->usuarioTieneCancion($usuario, [$cancion]);
+            }
+        }
 
         return $this->render('Cancion/listaCanciones.html.twig', [
-            
             'canciones' => $canciones,
+            'cancionesGuardadas' => $cancionesGuardadas,
         ]);
     }
 
     #[Route('/cancion/ukelele/ver', name: 'cancion_ukelele_ver')]
-    public function verCancionesUkelele(CancionRepository $cancionRepository): Response {
+    public function verCancionesUkelele(CancionRepository $cancionRepository, CancionUsuarioRepository $cancionUsuarioRepository): Response {
 
         $canciones = $cancionRepository->findBy(['instrumento' => 'Ukelele']);
+        $usuario = $this->getUser();
+
+        $cancionesGuardadas = [];
+        if ($usuario) {
+            foreach ($canciones as $cancion) {
+                $cancionesGuardadas[$cancion->getId()] = $cancionUsuarioRepository->usuarioTieneCancion($usuario, [$cancion]);
+            }
+        }
 
         return $this->render('Cancion/listaCanciones.html.twig', [
-            
             'canciones' => $canciones,
+            'cancionesGuardadas' => $cancionesGuardadas,
         ]);
     }
 }

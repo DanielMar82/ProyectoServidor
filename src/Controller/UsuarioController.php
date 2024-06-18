@@ -47,18 +47,16 @@ class UsuarioController extends AbstractController
 
     #[IsGranted('ROLE_USER')]
     #[Route('/borrar/cancion/{id}', name: 'borrar_cancion')]
-    public function borrarCancion(int $id, EntityManagerInterface $entityManager): Response
+    public function borrarCancion(int $id, EntityManagerInterface $entityManager, CancionUsuarioRepository $cancionUsuarioRepository): Response
     {   
         $usuario = $this->getUser();
-
-        $usuarioCancion = $entityManager->getRepository(CancionUsuario::class)->find($id);
+        $usuarioCancion = $cancionUsuarioRepository->findOneBy([
+            'usuario' => $usuario,
+            'cancion' => $id,
+        ]);
 
         if (!$usuarioCancion) {
             throw $this->createNotFoundException('La relación UsuarioCancion con el ID ' . $id . ' no fue encontrada.');
-        }
-
-        if ($usuarioCancion->getUsuario() !== $usuario) {
-            throw $this->createAccessDeniedException('No tienes permisos para realizar esta acción.');
         }
 
         $entityManager->remove($usuarioCancion);

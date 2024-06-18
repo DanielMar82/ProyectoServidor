@@ -38,16 +38,47 @@
                 {% for cancion in canciones %}
                     <a href="/cancion/{{ cancion.id }}">
                         <div class="tarjetaCancion">
-                            <img src={{ cancion.ruta}} alt="Cover cancion" class="coverCancion">
+                            <img src="{{ cancion.ruta }}" alt="Cover cancion" class="coverCancion">
                             <div class="datosCancion">
                                 <p>{{ cancion.nombre }}</p>
                                 <p>{{ cancion.autor }}</p>
                                 <p>{{ cancion.fecha }}</p>
-                                <label>
+                                {# <label>
                                     <form action="{{ path('guardar_cancion', {'id': cancion.id }) }}" method="post">
                                     <button type="submit"><p>Guardar canción</p><i class="bi bi-plus-circle"></i></button>
                                     </form>
-                                </label>
+                                </label> #}
+
+                                {% if app.user %}
+                                    {% if cancionesGuardadas[cancion.id] is defined and cancionesGuardadas[cancion.id] %}
+                                        <label>
+                                            <form action="{{ path('borrar_cancion', {'id': cancion.id}) }}" method="post">
+                                                <button type="submit">
+                                                    <p>Borrar canción</p>
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </form>
+                                        </label>
+                                    {% else %}
+                                        <label>
+                                            <form action="{{ path('guardar_cancion', {'id': cancion.id}) }}" method="post">
+                                                <button type="submit">
+                                                    <p>Guardar canción</p>
+                                                    <i class="bi bi-plus-circle"></i>
+                                                </button>
+                                            </form>
+                                        </label>
+                                    {% endif %}
+                                {% else %}
+                                    <label>
+                                        <form action="{{ path('guardar_cancion', {'id': cancion.id}) }}" method="post">
+                                            <button type="submit">
+                                                <p>Guardar canción</p>
+                                                <i class="bi bi-plus-circle"></i>
+                                            </button>
+                                        </form>
+                                    </label>
+                                {% endif %}
                             </div>
                             <div class="likesCancion">
                                 <button><i class="bi bi-hand-thumbs-up-fill"></i><p>1000</p></button>
