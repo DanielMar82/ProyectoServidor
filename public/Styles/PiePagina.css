@@ -1,0 +1,96 @@
+/*PIE*/
+
+.seccionPie {
+    background-color: #700000;
+}
+
+.pieContainer {
+    width: 100%;
+    padding: 20px 0px 0px;
+    text-align: center;
+    align-items: center;
+}
+.pieContainer h1 {
+    color: white;
+    font-size: 30px;
+}
+.pieContainer h2 {
+    color: white;
+    font-size: 30px;
+}
+
+.buscador {
+    margin:20px 0px;
+    color: white;
+}
+.buscador input {
+    width: 165px;
+    border-radius: 10px;
+    padding: 2px 5px;
+    border: none;
+    outline: none;
+}
+
+.iconosRR {
+    display: flex;
+    justify-content: center;
+}
+
+.iconosRR a {
+    text-decoration:none;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.iconosRR a i {
+    font-size: 2rem;
+    color: black;
+    opacity: 0.9;
+    margin:8px;
+}
+
+.iconosRR a:hover {
+    background-color: #111;
+    transition: 0.5s;
+}
+
+.iconosRR a:hover i{
+    color: white;
+    transition: 0.5s;
+}
+
+.navPie {
+    margin: 30px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.navPie li a {
+    color: white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.navPie li a:hover {
+    opacity: 1;
+}
+
+.finalPie {
+    background-color: #000;
+    padding-bottom: 5px;
+    padding-top: 15px;
+    text-align: center;
+    color: white;
+    margin-bottom: 0px;
+}
+
+@media (max-width: 830px) {
+    .navPie {
+        display: contents;
+    }
+}

@@ -37,7 +37,7 @@ class RegistroFormType extends AbstractType
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Tu contraseña debe de tener al menos {{ limit }} caracteres',
+                        'minMessage' => 'Mínimo {{ limit }} caracteres',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),

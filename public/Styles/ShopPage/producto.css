@@ -1,0 +1,202 @@
+.seccionProducto {
+    background-color: #CFCFCF;
+    padding: 100px;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    text-align: center;
+    width: 80%;
+    margin: 0px auto 80px;
+}
+
+.zonaProducto{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.seccionProducto img {
+    height: 400px;
+    border-radius: 60px;
+}
+
+.divDatos {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.zonaProducto article{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 450px;
+    gap: 15px;
+}
+
+.zonaProducto .divDatos div{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.zonaProducto .divDatos form{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.seccionProducto .zonaProducto hr {
+    height: 300px;
+    width: 1px;
+    border: 1px solid black;    
+}
+
+.seccionProducto hr {
+    width: 100%;
+    height: 1px;
+    border: 1px solid black; 
+}
+
+.zonaComentarios {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.escribirComentario {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 100px;
+}
+.escribirComentario div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+}
+.escribirComentario input {
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: solid 2px #949494;
+    outline: none;
+    font-size: 18px;
+    transition: all 0.7s ease;
+    padding: 3px 5px;
+}
+.escribirComentario input:focus {
+    border-color: rgb(0, 0, 0);
+}
+.escribirComentario span {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: end;
+}
+
+.comentario {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 60px;
+    padding: 10px 20px;
+    gap: 30px;
+}
+
+.comentario main {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+}
+.comentario main div span {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.zonaComentarios .bi {
+    font-size: 50px;
+}
+
+.comentario main div {
+    border-left: 1px solid black;
+    height: auto;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+
+.comentario main p {
+    margin: 0;
+}
+
+/* .respuestas {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: center;
+    margin-left: 150px;
+    
+}
+.respuestas article {
+    border-top: solid 1px;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    align-items: center;
+}
+.respuestas article div span {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.respuestas .bi {
+    font-size: 35px;
+}
+
+.respuestas div {
+    border-left: 1px solid black;
+    height: auto;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+
+.respuestas p {
+    margin: 0;
+} */
+
+@media only screen and (max-width: 1515px) {
+    .zonaProducto {
+       flex-direction: column; 
+       gap: 20px;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .divDatos {
+       flex-direction: column; 
+    }
+
+    .seccionProducto .zonaProducto hr {
+        height: 1px;
+        width: 300px;
+        border: 1px solid black;    
+        margin: auto;
+    }
+
+    .seccionProducto img {
+        height: 250px;
+    }
+
+    .datosProducto {
+        width: 270px;
+    }
+}

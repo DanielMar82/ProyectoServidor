@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Sobre nosotros - Trabajo Proyecto{% endblock %}</title>
+        <!-- Estilos CSS -->
+        {% block stylesheets %}
+            <link href="{{ asset('index.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+        <!-- Fuentes/Google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Rubik:wght@300&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </head>
+    <body class="body">
+
+    {% block body %}
+        <!-- MENU -->
+            {% include 'menu.html.twig' %}
+        <!-- CAMINO DE MIGAS -->
+        <div class="caminoMigas">
+            <ol>
+              <li class="migasAnt"><a href="{{ path('index') }}">Página principal</a></li>
+              <p>/</p>
+              <li class="migasAct">Sobre nosotros - Contacto</li>
+            </ol>
+        </div>
+        <!-- SOBRENOSOTROS -->
+        <div class="seccionAccesibilidad">
+            <h1>Declaración de accesibilidad</h1>
+            <h2>¿Quién soy?</h2>
+                <p>Mi nombre es Daniel, el creador de esta página web y estudiante del I.E.S El cañaveral.</p>
+                <p>La página web "El acorde" ha sido creada como trabajo de final de grado para el curso de desarrollo de aplicaciones web con la intención solventar la falta de páginas web buenas que ofrezcan documentación para el aprendizaje de instrumentos.</p>
+            <h2>contacto</h2>
+                <p>Aquí dejo mis contactos abierto a dudas o problemas</p>
+                <p>Correo: estecorreoesfalso@gmail.com</p>
+                <p>Telefono: +65 666 12 13 33</p>
+        </div>
+        <!-- PIE DE PÁGINA -->
+            {% include 'piePagina.html.twig' %}
+    {% endblock %}
+
+        <!-- Funcion Incluir JS -->
+        <script src="include-html.js"></script>
+    </body>
+</html>

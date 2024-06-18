@@ -1,0 +1,254 @@
+/* body{
+    background-color: rgb(15, 15, 15);
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.menu{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #700000;
+    font-size: 10px;
+    margin: 100px auto 100px;
+    padding: 20px 40px;
+    border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+
+.formularios{
+    text-align: center;
+    color: white;
+    background-color: #700000;
+    width: 800px;
+    margin:200px auto 100px;
+    padding: 40px 0px;
+    border-radius: 60px;
+}
+.formularios hr{
+    width: 400px;
+    background-color: white;
+    height: 2px;
+    border: none;
+}
+
+.canciones{
+    text-align: center;
+    color: white;
+    background-color: #700000;
+    width: 600px;
+    margin: 80px auto 10px;
+    padding: 50px 0px;
+    border-radius: 60px;
+}
+.canciones img{
+    width:170px;
+    border-radius:20px ;
+}
+.canciones hr{
+    width: 300px;
+    background-color: white;
+    height: 2px;
+    border: none;
+}
+
+#chartdiv {
+    width: 50%;
+    height: 500px;
+    margin:100px auto 20px;
+    color: black;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.estadisticas{
+    background-color: white;   
+    width: 50%;
+    margin:100px auto 20px;
+    border-radius: 60px;
+}
+
+.tienda{
+    width: 500px;
+    text-align: center;
+    background-color: #700000;
+    color: white;
+    margin: 70px auto 100px;
+    padding: 30px 30px;
+    border-radius: 60px;
+}
+.tienda img{
+    width: 170px;
+    border-radius: 30px;
+    padding: 20px;
+    background-color: white;
+}
+.tienda hr{
+    width: 300px;
+    background-color: white;
+    height: 2px;
+    border: none;
+}
+
+.carrito{
+    width: 400px;
+    color: white;
+    background-color: #700000;
+    margin: 70px auto 100px;
+    padding: 40px 30px;
+    border-radius: 60px;
+    text-align: center;
+}
+.carrito img{
+    width: 170px;
+    border-radius: 30px;
+    padding: 20px;
+    background-color: white;
+}
+.carrito hr{
+    width: 200px;
+    background-color: white;
+    height: 2px;
+    border: none;
+} */
+
+@import url('Styles/Menu.css');
+@import url('Styles/caminoMigas.css');
+@import url('Styles/PiePagina.css');
+@import url('Styles/mapaWeb.css');
+@import url('Styles/accesibilidad.css');
+
+@import url('Styles/LandingPage/Cuerpo.css');
+@import url('Styles/LandingPage/Separacion.css');
+@import url('Styles/LandingPage/Grid.css');
+@import url('Styles/LandingPage/carrusel.css');
+
+@import url('Styles/SignInPage/Login.css');
+@import url('Styles/SignInPage/sesionIni.css');
+
+@import url('Styles/ShopPage/Tienda.css');
+@import url('Styles/ShopPage/producto.css');
+@import url('Styles/ShopPage/enlaceCarrito.css');
+@import url('Styles/ShopPage/carrito.css');
+
+@import url('Styles/ListsPage/tarjetaCancion.css');
+@import url('Styles/ListsPage/cancion.css');
+@import url('Styles/ListsPage/videos.css');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.body{
+    background-color: rgb(7, 7, 7);
+    background-size: 1800px;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+}
+
+
+/* PRODUCTO, CARRITO */
+.zonaProducto div input, .productoEnLista div input {
+    outline: none;
+    border: none;
+    width: 80px;
+    font-size: 20px;
+    padding: 10px 0px 10px 15px;
+    border-radius: 20px;
+    text-align: center;
+}
+.escribirComentario button, .zonaProducto div button, .productoEnLista div button, .carritoComprar button {
+    padding: 4px 8px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+}
+.escribirComentario button:active, .zonaProducto div button:active, .productoEnLista div button:active, .carritoComprar button:active {
+    background-color: #700000;
+    color: white;
+}
+
+/*Responsive*/
+
+@media only screen and (max-width: 1650px) {
+    body{
+        background-size: 1500px;
+    }
+
+    /* .container{
+        max-width: 1400px;
+    } */
+}
+
+@media only screen and (max-width: 1365px) {
+    body{
+        background-size: 1200px;
+    }
+    /* .container{
+        min-width: 1200px;
+    } */
+}
+
+@media only screen and (max-width: 1190px) {
+    body{
+        background-size: 1000px;
+    }
+    /* .container{
+        min-width: 1000px;
+    } */
+}
+
+@media only screen and (max-width: 900px) {
+    /* .container{
+        min-width: 800px;
+    } */
+}
+
+
+@media only screen and (max-width: 805px) {
+    body{
+        background-size: 800px;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    /* .container{
+        max-width: 1400px;
+    } */
+}
+
+.col1{
+    background-image: url(imagenes/imagen1.jpeg);
+}
+.col2{
+    background-image: url(imagenes/imagen3.jpg);
+}
+.col3{
+    background-image: url(imagenes/imagen2.jpg);
+}
+
+.cabeza{
+    background-image: url(imagenes/fondo5.jpg);
+}
+
+.divImagenForm{
+    background-image: url(imagenes/imagenLogin.jpg);
+}
+
+@media only screen and (max-width: 950px) {
+    .seccionLogin{
+        background-image: url(imagenes/imagenLogin.jpg);
+    }
+}

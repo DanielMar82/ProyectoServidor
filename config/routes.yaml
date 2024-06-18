@@ -4,4 +4,8 @@ controllers:
         namespace: App\Controller
     type: attribute
 index:
-    path: /index.html
+    path: /
+    controller: App\Controller\IndexController::index
+# login_proyecto:
+#     path: /login-Proyecto.html
+#     controller: App\Controller\RegistroLoginController::index

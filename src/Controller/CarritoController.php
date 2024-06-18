@@ -40,7 +40,7 @@ class CarritoController extends AbstractController
 
         $session->set('carrito', $carrito);
 
-        return $this->redirectToRoute('producto_ver');
+        return $this->redirectToRoute('tienda');
     }
 
     #[Route('/carrito/eliminar', name: 'carrito_eliminar')]

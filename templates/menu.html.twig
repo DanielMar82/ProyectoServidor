@@ -1,0 +1,48 @@
+<input type="checkbox" id="check" class="inputCheck">
+<nav>
+    <a href="{{ path('index') }}" class="enlace">
+        <img src="{{ asset('imagenes/Logotipo.png') }}" alt="Icono Web temporal" class="logo">
+    </a>
+    <ul>
+        <li>Guitarra acústica/española
+            <ul class="ulDrop">
+                <li><a class="liDrop" href="{{ path('cancion_guitarraAcustica_ver') }}">Canciones</a></li>
+                <li><a class="liDrop" href="{{ path('video_tutorial_guitarraAcustica_ver') }}">Vídeos</a></li>
+                <li><a class="liDrop" href="{{ path('video_curso_guitarraAcustica_ver') }}">Cursos</a></li>
+            </ul>
+        </li>
+        <li>Guitarra eléctrica
+            <ul class="ulDrop">
+                <li><a class="liDrop" href="{{ path('cancion_guitarraElectrica_ver') }}">Canciones</a></li>
+                <li><a class="liDrop" href="{{ path('video_tutorial_guitarraElectrica_ver') }}">Vídeos</a></li>
+                <li><a class="liDrop" href="{{ path('video_curso_guitarraElectrica_ver') }}">Cursos</a></li>
+            </ul>
+        </li>
+        <li>Bajo
+            <ul class="ulDrop">
+                <li><a class="liDrop" href="{{ path('cancion_bajo_ver') }}">Canciones</a></li>
+                <li><a class="liDrop" href="{{ path('video_tutorial_bajo_ver') }}">Vídeos</a></li>
+                <li><a class="liDrop" href="{{ path('video_curso_bajo_ver') }}/video/curso/bajo/ver">Cursos</a></li>
+            </ul>
+        </li>
+        <li>Ukelele
+            <ul class="ulDrop">
+                <li><a class="liDrop" href="{{ path('cancion_ukelele_ver') }}">Canciones</a></li>
+                <li><a class="liDrop" href="{{ path('video_tutorial_ukelele_ver') }}">Vídeos</a></li>
+                <li><a class="liDrop" href="{{ path('video_curso_ukelele_ver') }}/video/curso/ukelele/ver">Cursos</a></li>
+            </ul>
+        </li>
+        <li><a href="{{ path('tienda') }}">Tienda</a></li>
+    </ul>
+    {% if app.user %}
+        <a href="{{ path('perfil_ver') }}" class="user"><i class="bi bi-person-circle"></i><span>{{ app.user.nombre }}</span></a>
+        <label for="check" class="checkBoton">
+            <i class="fas fa-bars"></i>
+        </label>
+    {% else %}
+        <a href="{{ path('usuario_registrar') }}" class="user"><i class="bi bi-person-circle"></i><span>Iniciar sesión | Crear cuenta</span></a>
+        <label for="check" class="checkBoton">
+            <i class="fas fa-bars"></i>
+        </label>
+    {% endif %}
+</nav>

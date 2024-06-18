@@ -1,0 +1,106 @@
+.seccionCarrusel {
+    /* margin: 60px auto; */
+    padding: 60px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    background-image: url("/imagenes/FondoDisco.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.tituloCarrusel {
+    background-color: #4d0000;
+    padding: 20px 30px;
+    border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+.tituloCarrusel h1 {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 0px;
+}
+
+.apartadoCarrusel {
+    width: 340px;
+    
+    background-color: #4d0000;
+    border-radius: 40px;
+    overflow: hidden;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    position: relative;
+}
+
+.carruseles {
+    width: 340%;
+    height: 100%;
+    display: flex;
+    gap: 25px;
+    /* background-color: aqua; */
+    /* transform: translateX(-34.2%); */
+    /* transform: translateX(-68.4%); */
+}
+
+.slider-section {
+    width: calc(100% / 3);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.slider-section img {
+    height: 300px;
+    border-radius: 40px;
+    border: solid 8px rgb(7, 7, 7);
+}
+.slider-section span {
+    color: rgb(255, 255, 255);
+    background-color: rgb(7, 7, 7);
+    text-align: center;
+    margin: 0px 10px;
+    padding: 10px 10px;
+    border-radius: 20px;
+}
+.slider-section span h1 {
+    font-size: 25px;
+}
+
+
+.flechIzq, .flechDer {
+    display: flex;
+    position: absolute;
+    margin-top: 370px;
+    font-size: 30px;
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 5px;
+    font-weight: 600;
+    color: white;
+    transform: translate(0, -50%);
+    user-select: none;
+}
+
+.flechIzq {
+    left: -4px;
+}
+.flechIzq:hover {
+    color: pink;
+}
+
+.flechDer {
+    right: -15px;
+}
+.flechDer:hover {
+    color: pink;
+}
+
+@media only screen and (max-width: 600px) {
+    .tituloCarrusel h1 {
+        font-size: 30px;
+    }
+}

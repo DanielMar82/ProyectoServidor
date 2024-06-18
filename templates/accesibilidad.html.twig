@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Accesibilidad - Trabajo Proyecto{% endblock %}</title>
+        <!-- Estilos CSS -->
+        {% block stylesheets %}
+            <link href="{{ asset('index.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+        <!-- Fuentes/Google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Rubik:wght@300&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </head>
+    <body class="body">
+
+    {% block body %}
+        <!-- MENU -->
+            {% include 'menu.html.twig' %}
+        <!-- CAMINO DE MIGAS -->
+        <div class="caminoMigas">
+            <ol>
+              <li class="migasAnt"><a href="{{ path('index') }}">Página principal</a></li>
+              <p>/</p>
+              <li class="migasAct">Accesibilidad de la página</li>
+            </ol>
+        </div>
+        <!-- ACCESIBILIDAD -->
+        <div class="seccionAccesibilidad">
+            <h1>Declaración de accesibilidad</h1>
+            <p>
+                La página El Acorde se compromete a hacer accesibles sus sitios web de conformidad con el Real Decreto 1112/2018, de 7 de septiembre, sobre accesibilidad de los sitios web y aplicaciones para dispositivos móviles (en adelante, Real Decreto 1112/2018, de 7 de septiembre).
+                La presente declaración de accesibilidad se aplica al sitio web y sus subdominios http://localhost:3000/Principal-Proyecto.html
+            </p>
+            <h2>Situación de cumplimiento</h2>
+                <p>Este sitio web es parcialmente conforme con el Real Decreto 1112/2018, de 7 de septiembre, debido a la falta de conformidad de los aspectos que se indican a continuación.</p>
+            <h2>contenido no accesible</h2>
+                <h3>El contenido que se recoge a continuación no es accesible por lo siguiente:</h3>
+                    <p>Falta de conformidad con el Real Decreto 1112/2018, de 7 de septiembre.</p>
+                    <p>Falta de contraste en algunos apartados de la página.</p>
+                    <p>Textos pequeños difíciles de leer.</p>
+                    <p>Enlaces rotos e inutilizables.</p>
+                    <p>Barra de búsqueda inutilizable.</p>
+            <h2>Preparación de la presente declaración de accesibilidad</h2>
+                <p>La presente declaración fue preparada el 10 de Marzo de 2024.</p>
+                <p>El método empleado para preparar la declaración ha sido una autoevaluación llevada a cabo por el propio organismo.</p>
+                <p>Última revisión de la declaración: 14 de Marzo de 2024.</p>
+            <h2>Observaciones y datos de contacto</h2>
+                <p>Puede realizar comunicaciones sobre requisitos de accesibilidad (artículo 10.2.a) del Real Decreto 1112/2018, de 7 de septiembre) como, por ejemplo:</p>
+                <ul>
+                    <li>Informar sobre cualquier posible incumplimiento por parte de este sitio web.</li>
+                    <li>Transmitir otras dificultades de acceso al contenido.</li>
+                    <li>Formular cualquier otra consulta o sugerencia de mejora relativa a la accesibilidad del sitio web.</li>
+                </ul>
+                <p>A través de la siguiente vía:</p>
+                <ul>
+                    <li>Correo electrónico: daniel.martin17@educa.madrid.org</li>
+                </ul>
+            <h2>Procedimiento de aplicación</h2>
+                <p>A través de este procedimiento podrá iniciar una reclamación para conocer y oponerse a los motivos de la desestimación de una solicitud de información accesible o queja, instar la adopción de las medidas oportunas en el caso de no estar de acuerdo con la decisión adoptada, o exponer las razones por las que se considera que la respuesta no cumple con los requisitos exigidos.</p>
+                <p>Enlace al <a href="https://sedeminhap.gob.es/es-ES/Organos/SecretariaGeneralTecnica/Procedimientos/Paginas/Default.aspx?IdProcedimiento=1771&p=2">procedimiento de reclamación</a>, que debe dirigir a la Subdirección General de Servicios Web, Transparencia y Protección de Datos, como Unidad responsable de accesibilidad de este Ministerio, o si la reclamación es por una actuación de dicha Unidad, al superior jerárquico de ésta.
+                </p>
+            <h2>Contenido opcional</h2>
+                <p>La versión actualmente visible de este sitio web es de Marzo de 2024 y en esa fecha se hizo la revisión del nivel de accesibilidad vigente en aquel momento.</p>
+                <p>A partir de dicha fecha se llevan a cabo revisiones parciales diarias del contenido web nuevo o modificado, tanto de las plantillas como de las páginas y documentos finales publicados, a fin de asegurar el cumplimiento de los requerimientos de accesibilidad de la Norma UNE-EN 301549:2022, considerando las excepciones del Real Decreto 1112/2018, de 7 de septiembre.</p>
+                <p>Adicionalmente, este sitio web es revisado por Daniel Martín Ruiz, habiéndose realizado la última revisión en Marzo de 2024.</p>
+                <ul>
+                    <li>Utilización de texto alternativo en las imágenes.</li>
+                    <li>Los enlaces ofrecen detalles de la función o destino del hipervínculo.</li>
+                    <li>Uso de los estándares del W3C: XHTML 1.0, CSS 3.0, WAI AA.</li>
+                </ul>
+            </div>
+        <!-- PIE DE PÁGINA -->
+            {% include 'piePagina.html.twig' %}
+    {% endblock %}
+
+        <!-- Funcion Incluir JS -->
+        <script src="include-html.js"></script>
+    </body>
+</html>

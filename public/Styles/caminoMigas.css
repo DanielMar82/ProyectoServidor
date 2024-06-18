@@ -1,0 +1,22 @@
+.caminoMigas{
+    margin: 180px  auto 0px;
+    display: table;
+}
+.caminoMigas ol{
+    display: flex;
+    text-decoration: none;
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+
+.caminoMigas .migasAnt a{
+    color: pink;
+    text-decoration:underline;
+}
+.caminoMigas p{
+    color: white;
+    margin: 0px 5px;
+}
+.caminoMigas .migasAct{
+    color: white;
+}

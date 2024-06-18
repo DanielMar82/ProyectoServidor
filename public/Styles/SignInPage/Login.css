@@ -1,0 +1,112 @@
+/*LOGIN*/
+.seccionLogin{
+    background-color: black;
+    color: white;
+    text-align: center;
+    align-items: center;
+    width: 900px;
+    height: 670px;
+    margin: 20px auto 90px;
+    border-top-left-radius: 90px;
+    border-bottom-right-radius: 90px; 
+    display: flex;
+    box-shadow: 0px 0px 10px 1px #3b3b3b;
+}
+
+.divImagenForm{
+    /* Esto va en index.css */
+    /* background-image: url(/public/imagenes/imagenLogin.jpg); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 40px;
+    width: 500px;
+    height: 670px;
+    align-items: center;
+    border-top-left-radius: 90px;
+}
+.textoBienvenida{ /*SE PONE POR ENCIMA DEL MENU*/
+    color: white;
+    /* background-color: transparent; */
+    backdrop-filter: brightness(0.4);
+    padding: 10px 70px;
+    border-top-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+}
+.textoBienvenida p {
+    text-align: start;
+}
+
+
+.divFormularios{
+    margin:40px 80px;
+}
+
+.formTitulo{
+    font-size: 25px;
+}
+
+.seccionLogin .logo{
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.formulario{
+    text-align: left;
+}
+.formulario label{
+    width: 100%;
+    margin-top: -10px;
+}
+.formulario label input{
+    background:transparent;
+    background-color: white;
+    border: 0;
+    padding: 0px 4px;
+    width: 100%;
+    outline: none;
+}
+.formulario div input{
+    background:transparent;
+    background-color: white;
+    border: 0;
+    width: 100%;
+    outline: none;
+}
+/* .formulario label input:{
+    border: 0;
+} */
+
+.botonForm{
+    background-color: pink;
+    padding: 5px 8px;
+    border-radius: 15px;
+    border: 0;
+    transition: all 0.20s ease;
+}
+.botonForm:hover{
+    background-color: #700000;
+    color: white;
+}
+
+@media only screen and (max-width: 950px) {
+    .seccionLogin{
+        width: 450px;
+        /* background-image: url("../imagenes/imagenLogin.jpg"); */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        box-shadow: 0px 0px 0px 0px;
+    }
+    .divImagenForm{
+        display: none;
+    }
+    .divFormularios{
+        /* backdrop-filter: blur(10px); */
+        backdrop-filter: brightness(0.4);
+        border-top-left-radius: 90px;
+        border-bottom-right-radius: 90px;
+        padding: 10px;
+        margin:25px 50px;
+    }
+}

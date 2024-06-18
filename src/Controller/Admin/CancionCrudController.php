@@ -24,6 +24,7 @@ class CancionCrudController extends AbstractCrudController
             TextField::new('autor'),
             IntegerField::new('fecha'),
             TextField::new('ruta'),
+            TextField::new('instrumento'),
         ];
     }
 }

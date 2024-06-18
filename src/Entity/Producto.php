@@ -34,6 +34,9 @@ class Producto
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $rutaImagen = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $seccion = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +122,18 @@ class Producto
     public function setRutaImagen(?string $rutaImagen): static
     {
         $this->rutaImagen = $rutaImagen;
+
+        return $this;
+    }
+
+    public function getSeccion(): ?string
+    {
+        return $this->seccion;
+    }
+
+    public function setSeccion(string $seccion): static
+    {
+        $this->seccion = $seccion;
 
         return $this;
     }

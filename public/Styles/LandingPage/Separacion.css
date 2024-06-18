@@ -1,0 +1,17 @@
+/*MASTIL*/
+.mastil{
+    background-color: #4d0000 ;
+    padding: 8px 0px;
+}
+
+.mastil2{
+    background-color: black;
+    padding: 1px 0px;
+    margin-left: 0px;
+}
+
+.cuerda{
+    color: white;
+    margin:7px 0px;
+    position: static;
+}

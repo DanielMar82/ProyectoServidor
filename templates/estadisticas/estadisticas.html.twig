@@ -5,7 +5,7 @@
         {% block stylesheets %}
             <link href="{{ asset('index.css') }}" type="text/css" rel="stylesheet" />
         {% endblock %}
-        <title>{% block title %}Pag Estadisticas{% endblock %}</title>
+        <title>{% block title %}Estadisticas - Proyecto{% endblock %}</title>
         <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
         <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
         <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
@@ -16,7 +16,18 @@
     <body>
         {% block body %}
 
-            <a href="../index.html">Volver a la página inicial</a>
+        <!-- MENU -->
+            {% include 'menu.html.twig' %}
+
+        <!-- CAMINO DE MIGAS -->
+        <div class="caminoMigas">
+            <ol>
+              <li class="migasAnt"><a href="{{ path('index') }}">Página principal</a></li>
+              <p>/</p>
+              <li class="migasAct">Estadisticas</li>
+            </ol>
+        </div>
+
 <div class="estadisticas">
   <div id="chartdiv" class"chartdiv">
     <h1>Cantidades de productos</h1>
@@ -27,6 +38,10 @@
   <br />
   <br />
 </div>
+
+
+  <!-- PIE DE PÁGINA -->
+      {% include 'piePagina.html.twig' %}
 
 
 </style>

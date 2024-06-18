@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block stylesheets %}
+            <link href="{{ asset('index.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+        <title>{% block title %}Tienda - Proyecto{% endblock %}</title>
+        <!-- Fuentes/Google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Rubik:wght@300&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </head>
+    <body class="body">
+    {% block body %}
+
+        {# MENU #}
+        {% include 'menu.html.twig' %}
+
+        <!-- CAMINO DE MIGAS -->
+        <div class="caminoMigas">
+            <ol>
+                <li class="migasAnt"><a href="{{ path('index') }}">Página principal</a></li>
+                <p>/</p>
+                <li class="migasAnt"><a href="{{ path('listaCanciones_ver') }}">Lista canciones</a></li>
+                <p>/</p>
+                <li class="migasAct">Cancion</li>
+            </ol>
+        </div>
+
+        {# CANCION #}
+
+        <section class="cancion">
+            <main>
+                <img src={{ cancion.ruta }} alt={{ cancion.nombre }}>
+                <div>
+                    <p>{{ cancion.nombre }}</p>
+                    <p>{{ cancion.autor }}</p>
+                    <p>{{ cancion.fecha }}</p>
+                </div>
+            </main>
+            <div class="tablatura">
+                <img src="../imagenes/PruebaTablatura.jpg" alt="">
+            </div>
+            <div>
+                <p>Descargar tablatura</p>
+                <p>Guardar canción</p>
+            </div>
+            <div class="likesCancion">
+                <button><i class="bi bi-hand-thumbs-up-fill"></i><p>1000</p></button>
+                <button><i class="bi bi-hand-thumbs-down-fill"></i><p>1000</p></button>
+            </div>
+            <hr>
+            <footer class="zonaComentarios">
+                <div class="escribirComentario">
+                    <form action="{{ path('escribir_comentario_cancion') }}" method="post">
+                        <div>
+                            <i class="bi bi-person-circle"></i>
+                            <input type="text" name="contenidoComentario" placeholder="Añade una reseña..." />
+                            <input type="hidden" name="id_cancion" value={{ cancion.id }}>
+                        </div>
+                        <span>
+                            <button type="submit">Enviar comentario</button>
+                        </span>
+                    </form>
+                </div>
+                {% if comentarios %}
+                    {% for item in comentarios %}
+                        <article class="comentario">
+                            <main>
+                                <i class="bi bi-person-circle"></i>
+                                <div>
+                                    <span class="nombreFechaComent">
+                                        <p>{{ item.usuario.nombre }}</p>
+                                    </span>
+                                    <p>{{ item.comentario.contenido }}</p>
+                                </div>
+                            </main>
+                        </article>
+                    {% endfor %}
+                {% else %}
+                    <h2>No hay comentarios todavía.</h2>
+                {% endif %}
+            </footer>
+        </section>
+        
+        
+
+            {# PIE DE PÁGINA #}
+            {% include 'piePagina.html.twig' %}
+
+        {% endblock %}
+
+        {# INCLUDE JS #}
+        <script src="{{ asset('include-html.js')}}"></script>
+    </body>
+</html>

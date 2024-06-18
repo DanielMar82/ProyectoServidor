@@ -1,0 +1,130 @@
+/*TIENDA*/
+.cabeceraTienda{
+    width: 80%;
+    margin: 0px auto 0px;
+    /* height: 180px; */
+    background-color: rgb(35, 35, 35);
+    padding: 30px 50px 30px 50px;
+    font-size: 25px;
+    align-items: center;
+    border-top-left-radius: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.buscadorTienda .bi{
+    font-size: 30px;
+    margin-right: 20px;
+    color: white;
+}
+.buscadorTienda input {
+    outline: none;
+    border: none;
+    border-bottom: solid 2px white;
+    color: white;
+    padding: 3px 5px;
+    background: none;
+    font-size: 20px;
+}
+
+.menuTienda{
+    display: flex;
+    align-items: center;
+    /* padding: 0px 150px; */
+    transition: all 0.3s ease;
+    
+}
+.menuTienda ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    gap: 15px;
+}
+.menuTienda a{
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s ease;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+.menuTienda a:hover{
+    color: white;
+    background-color: #700000;
+}
+
+.seccionProductos{
+    width: 80%;
+    /* height: 500px; */
+    background-color: #CFCFCF;
+    margin: 0px auto 80px;
+    padding: 30px 0px 60px;
+    border-bottom-right-radius: 60px;
+}
+.linea{
+    width: 100%;
+    /* background-color: aqua; */
+    padding: 30px 60px;
+    /* margin-bottom: 100px; */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.linea a {
+    text-decoration: none;
+    color: black;
+}
+.cuadrado{
+    width: 280px;
+    height: 280px;
+    min-width: 280px;
+    background-color: white;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+.cuadrado:hover{
+    width: 290px;
+    height: 290px;
+    padding: 25px;
+    box-shadow: 10px 10px 10px 0px rgba(32,32,32,0.6);
+}
+.cuadrado img{
+    height: 80%;
+}
+.cuadrado p{
+    margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 1370px) {
+    .menuTienda{
+        padding: 0px 20px;
+    }
+}
+@media only screen and (max-width: 1120px) {
+    .buscadorTienda input {
+        width: 180px;
+    }
+
+    .cuadrado{
+        width: 170px;
+        height: 170px;
+        min-width: 170px;
+    }
+    .cuadrado:hover{
+        width: 180px;
+        height: 180px;
+    }
+}
+@media only screen and (max-width: 950px) {
+    .cabeceraTienda {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

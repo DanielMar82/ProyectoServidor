@@ -12,7 +12,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class RegistroLoginController extends AbstractController
@@ -72,11 +75,73 @@ class RegistroLoginController extends AbstractController
         return new Response("El correo del usuario es ". $correoDelUsuario. " con id ". $idUsuario ." con carrito: ".$primeroCarrito);
     }
 
-    #[Route('/sesion/eliminar', name: 'sesion_eliminar' )]
-    public function eliminarSesion(UsuarioRepository $usuarioRepository, Request $request): Response{
+    #[Route('/perfil', name: 'perfil_ver' )]
+    public function verPerfil(): Response{
         
-        
+        return $this->render('registro_login/perfil.html.twig');
+    }
 
-        return new Response("Sesion eliminada");
+    #[Route('/sesion/eliminar', name: 'sesion_eliminar' )]
+    public function eliminarSesion(Request $request): Response{
+        
+        $session = $request->getSession();
+        $session->clear();
+
+        return $this->redirectToRoute('homepage');
+    }
+
+    #[Route('/cambiarContraseña', name: 'contraseña_cambiar' )]
+    public function cambiarContraseña(EntityManagerInterface $entityManager, Request $request, UserPasswordHasherInterface $passwordHasher): Response{
+    
+        $user = $this->getUser();
+
+        if (!$user instanceof Usuario) {
+            throw new AccessDeniedException('Acceso denegado.');
+        }
+
+        if ($request->isMethod('POST')) {
+            $actualPassword = $request->request->get('actualPassword');
+            $nuevaPassword = $request->request->get('nuevaPassword');
+
+            if (!$passwordHasher->isPasswordValid($user, $actualPassword)) {
+                $this->addFlash('error', 'La contraseña actual es incorrecta.');
+                return $this->redirectToRoute('perfil_ver');
+            }
+
+            $hashedPassword = $passwordHasher->hashPassword($user, $nuevaPassword);
+
+            $user->setPassword($hashedPassword);
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Contraseña cambiada correctamente.');
+            return $this->redirectToRoute('perfil_ver');
+        }
+
+
+        return $this->render('registro_login/perfil.html.twig');
+    }
+
+    #[Route('/verificarBorrado', name: 'verificar_borrado' )]
+    public function verificarBorrado(): Response {
+
+        return $this->render('registro_login/verificarBorrado.html.twig');
+    }
+
+    #[Route('/borrar/cuenta', name: 'cuenta_borrar' )]
+    public function borrarCuenta(Request $request, EntityManagerInterface $entityManager): Response {
+
+        $session = $request->getSession();
+        $user = $this->getUser();
+        $session->invalidate();
+
+        $entityManager->remove($user);
+        $entityManager->flush();
+
+
+        $this->addFlash('success', 'Cuenta eliminada correctamente.');
+
+        return $this->redirectToRoute('index');
     }
 }

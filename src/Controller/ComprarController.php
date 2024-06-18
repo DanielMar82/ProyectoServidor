@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class ComprarController extends AbstractController
@@ -28,46 +29,83 @@ class ComprarController extends AbstractController
         ]);
     }
 
-    #[Route('/tienda', name: 'enviar_tienda')]
-    public function enviarTienda(): Response {
+    // #[Route('/comprar/carrito', name: 'comprar_carrito')]
+    // public function comprar(ProductoRepository $productoRepository, UsuarioRepository $usuarioRepository, AuthenticationUtils $authenticationUtils, Request $request, EntityManagerInterface $entityManager, SessionInterface $session): Response {
+        
+    //     // $lastUsername=$authenticationUtils->getLastUsername();
 
-        return $this->render('Comprar/tienda.html.twig');
-    }
+    //     $session = $request->getSession();
 
+    //     $correoUsuario = $session->get("nombreUsuario");
+
+    //     $carrito = $session->get('carrito', []);
+
+    //     $usuario = $usuarioRepository->findOneBy(['email' => $correoUsuario]);
+    //     $idUsuario = $usuario->getId();
+    //     //$nombreUsuario = $usuario->getNombre();
+
+    //     $pedido = new Pedido();
+    //     $pedido->setUsuario($usuario);
+
+    //     foreach($carrito as $productoEnCarrito){
+
+    //         $producto = $productoRepository->find($productoEnCarrito['id']);
+
+    //         $lineaPedido = new LineaPedido();
+    //         $lineaPedido->setPedidos($pedido);
+    //         $lineaPedido->setProducto($producto);
+    //         $entityManager->persist($lineaPedido);
+    //     }
+
+    //     $entityManager->persist($pedido);
+    //     $entityManager->flush();
+
+    //     $carrito = $session->set('carrito', []);
+
+
+    //     return $this->redirectToRoute('carrito_ver');
+    // }
+
+    #[IsGranted('ROLE_USER')]
     #[Route('/comprar/carrito', name: 'comprar_carrito')]
     public function comprar(ProductoRepository $productoRepository, UsuarioRepository $usuarioRepository, AuthenticationUtils $authenticationUtils, Request $request, EntityManagerInterface $entityManager, SessionInterface $session): Response {
-        
-        // $lastUsername=$authenticationUtils->getLastUsername();
-
-        $session = $request->getSession();
-
-        $correoUsuario = $session->get("nombreUsuario");
 
         $carrito = $session->get('carrito', []);
+        $usuario = $this->getUser();
 
-        $usuario = $usuarioRepository->findOneBy(['email' => $correoUsuario]);
-        $idUsuario = $usuario->getId();
-        //$nombreUsuario = $usuario->getNombre();
+        if (empty($carrito)) {
+            $this->addFlash('error', 'No hay productos en el carrito.');
+            return $this->redirectToRoute('tienda');
+        }
+
+        $productoIds = array_map(function($item) {
+            return $item['id'];
+        }, $carrito);
 
         $pedido = new Pedido();
         $pedido->setUsuario($usuario);
+        $entityManager->persist($pedido);
+        $entityManager->flush(); 
 
-        foreach($carrito as $productoEnCarrito){
+        foreach($productoIds as $productoId){
 
-            $producto = $productoRepository->find($productoEnCarrito['id']);
+            $producto = $productoRepository->find($productoId);
 
-            $lineaPedido = new LineaPedido();
-            $lineaPedido->setPedidos($pedido);
-            $lineaPedido->setProducto($producto);
-            $entityManager->persist($lineaPedido);
+            if($producto) {
+                $lineaPedido = new LineaPedido();
+                $lineaPedido->setPedidos($pedido);
+                $lineaPedido->setProducto($producto);
+                $entityManager->persist($lineaPedido);
+
+                $producto->setLineasPedidos($lineaPedido);
+                $entityManager->persist($producto);
+            }
         }
 
-        $entityManager->persist($pedido);
         $entityManager->flush();
 
-        $carrito = $session->set('carrito', []);
+        $session->remove('carrito');
 
-
-        return $this->redirectToRoute('carrito_ver');
+        return $this->render('Comprar/confirmacionCompra.html.twig');
     }
 }

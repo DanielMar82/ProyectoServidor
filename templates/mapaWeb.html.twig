@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Accesibilidad - Trabajo Proyecto{% endblock %}</title>
+        <!-- Estilos CSS -->
+        {% block stylesheets %}
+            <link href="{{ asset('index.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+        <!-- Fuentes/Google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Rubik:wght@300&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </head>
+    <body class="body">
+
+    {% block body %}
+        <!-- MENU -->
+            {% include 'menu.html.twig' %}
+
+        <!-- CAMINO DE MIGAS -->
+        <div class="caminoMigas">
+            <ol>
+              <li class="migasAnt"><a href="{{ path('index') }}">Página principal</a></li>
+              <p>/</p>
+              <li class="migasAct">Mapa web</li>
+            </ol>
+        </div>
+        <!-- ACCESIBILIDAD -->
+        <div class="mapaWeb">
+            <div class="listaMapaWeb">
+                <ul>
+                    <li>
+                        <a href="{{ path('index') }}">Página principal</a>
+                        <ul>
+                            <li><a href="canciones-Proyecto.html">Canciones</a></li>
+                            <li><a href="login-Proyecto.html">Cuenta</a></li>
+                            <li><a href="accesibilidad-Proyecto.html">Página de accesibilidad</a></li>
+                            <li><a href="mapaWeb-Proyecto.html">Mapa web</a></li>
+                        </ul>
+                    </li>
+                    <br />
+                    <li>
+                        <a href="login-Proyecto.html">Cuenta</a>
+                        <ul>
+                            <li><a href="{{ path('index') }}">Página principal</a></li>
+                            <li><a href="canciones-Proyecto.html">Canciones</a></li>
+                            <li><a href="accesibilidad-Proyecto.html">Página de accesibilidad</a></li>
+                            <li><a href="mapaWeb-Proyecto.html">Mapa web</a></li>
+                        </ul>
+                    </li>
+                    <br />
+                    <li>
+                        <a href="canciones-Proyecto.html">Canciones</a>
+                        <ul>
+                            <li><a href="{{ path('index') }}">Página principal</a></li>
+                            <li><a href="login-Proyecto.html">Cuenta</a></li>
+                            <li><a href="accesibilidad-Proyecto.html">Página de accesibilidad</a></li>
+                            <li><a href="mapaWeb-Proyecto.html">Mapa web</a></li>
+                        </ul>
+                    </li>
+                    <br />
+                    <li>
+                        <a href="accesibilidad-Proyecto.html">Página de accesibilidad</a>
+                        <ul>
+                            <li><a href="{{ path('index') }}">Página principal</a></li>
+                            <li><a href="login-Proyecto.html">Cuenta</a></li>
+                            <li><a href="canciones-Proyecto.html">Canciones</a></li>
+                            <li><a href="mapaWeb-Proyecto.html">Mapa web</a></li>
+                        </ul>
+                    </li>
+                    <br />
+                    <li>
+                        <a href="mapaWeb-Proyecto.html">Mapa web</a>
+                        <ul>
+                            <li><a href="{{ path('index') }}">Página principal</a></li>
+                            <li><a href="login-Proyecto.html">Cuenta</a></li>
+                            <li><a href="canciones-Proyecto.html">Canciones</a></li>
+                            <li><a href="accesibilidad-Proyecto.html">Página de accesibilidad</a></li>
+                        </ul>
+                    </li>
+                    <br />
+                </ul> 
+            </div>   
+        </div>
+        <!-- PIE DE PÁGINA -->
+            {% include 'piePagina.html.twig' %}
+    {% endblock %}
+
+        <!-- Funcion Incluir JS -->
+        <script src="include-html.js"></script>
+    </body>
+</html>
+
+{% include 'menu.html.twig' %}
+{% include 'piePagina.html.twig' %}
+href="{{ path('index') }}"

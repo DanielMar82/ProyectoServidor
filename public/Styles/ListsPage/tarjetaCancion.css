@@ -1,0 +1,133 @@
+.seccionCanciones{
+    margin-top: 0px;
+    align-items: center;
+}
+
+.seccionCanciones a {
+    text-decoration: none;
+}
+
+.buscadorCanciones{
+    background-color: pink;
+    height: 70px;
+    padding: 13px 60px;
+    width: 400px;
+    border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    margin: 20px auto 60px;
+}
+.buscadorCanciones input {
+    border: none;
+    outline: none;
+    padding: 0px 10px;
+}
+.bi{
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.tarjetaCancion{
+    align-items: center;
+    display: flex;
+    width: 60%;
+    height: 170px;
+    background-color: #4d0000;
+    color: white;
+    margin: 60px auto 60px;
+    padding: 15px 15px;
+    border-radius: 30px;
+    transition: all 0.2s ease;
+}
+.tarjetaCancion:hover{
+    transform: scale(1.2);
+}
+.coverCancion{
+    height: 100%;
+    margin-right: 20px;
+    border-radius: 30px;
+}
+.datosCancion{
+    margin-top: auto;
+}
+.datosCancion label button{
+    display: flex;
+    margin-bottom: 10px;
+    background: none;
+    outline: none;
+    color: white;
+    border: none;
+}
+.datosCancion label button p{
+    margin-top: 6px;
+}
+.datosCancion label button i{
+    margin-left: 10px;
+    transition: all 0.2s ease;
+}
+.datosCancion label button i:hover{
+    color: black;
+}
+
+.likesCancion{
+    display: flex;
+    margin-left: auto;
+    margin-right: 20px;
+    gap: 40px;
+}
+.likesCancion button {
+    height: 40px;
+    border: none;
+    background: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+.likesCancion .bi{
+    transition: all 0.2s ease;
+}
+.likesCancion .bi-hand-thumbs-up-fill:hover{
+    color: green;
+}
+.likesCancion .bi-hand-thumbs-down-fill:hover{
+    color: red;
+}
+
+@media only screen and (max-width: 935px) {
+    .tarjetaCancion{
+        width: 550px;
+    }
+    .tarjetaCancion:hover{
+        width: 600px;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .tarjetaCancion{
+        width: 280px;
+        height: 500px;
+        display: block;
+    }
+    .tarjetaCancion:hover{
+        width: 300px;
+        height: 520px;
+    }
+    .coverCancion{
+        display:flex ;
+        height: 50%;
+        margin: 5px auto 15px;
+    }
+    .likesCancion button {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .buscadorCanciones{
+        width: 100%;
+        padding: 13px 10%;
+    }
+
+    .buscadorCanciones label input{
+        width: 85%;
+    }
+}

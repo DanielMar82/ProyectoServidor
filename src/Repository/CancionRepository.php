@@ -21,6 +21,15 @@ class CancionRepository extends ServiceEntityRepository
         parent::__construct($registry, Cancion::class);
     }
 
+    public function findUltimasTresCanciones(): array
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.id', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Cancion[] Returns an array of Cancion objects
 //     */

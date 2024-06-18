@@ -1,0 +1,22 @@
+<div class="seccionPie">
+    <div class="pieContainer">
+        <label class="buscador"><i class="bi bi-search"></i><input type="text" placeholder="Busca lo que quieras" name="barra de búsqueda"></label>
+        <div class="iconosRR">
+            <a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/"><i class="bi bi-youtube"></i></a>
+            <a href="https://x.com/?lang=es"><i class="bi bi-twitter"></i></a>
+        </div>
+        <ul class="navPie">
+            <li><a href="/sobreNosotros">Sobre nosotros - Contacto</a></li>
+            <li><a href="/accesibilidad">Accesibilidad de la página</a></li>
+            <li><a href="/mapaWeb">Mapa web</a></li>
+        </ul>
+        {% if app.user and 'ROLE_MANAGER' in app.user.roles %}
+            <h2>
+                Estadisticas
+            </h2>
+        {% else %}
+        {% endif %}
+        <p class="finalPie">Copyright &copy;2024; Diseñado por: Daniel Martín Ruiz</p>
+    </div>
+</div>

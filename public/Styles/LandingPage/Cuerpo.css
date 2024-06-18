@@ -1,0 +1,37 @@
+/*CUERPO*/
+.cabeza{
+    /* Esto tiene que ir en Index.css porque no pilla las imagenes en background-image*/
+    /* background-image: url(/public/imagenes/fondo5.jpg); */
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 0px;
+    padding-top: 100px;
+    padding-bottom: 10px;
+}
+
+.seccionCuerpo{
+    text-align: center;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: rgba(112, 0, 0, 0.75);
+    color: white;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 130px;
+    margin-bottom: 50px;
+    border-radius: 80px;
+    line-height: 20px;
+}
+
+.cuerpo{
+    align-items: center;
+    width: 80%;
+} 
+
+.seccionCuerpo h2{
+    font-size: 1.5rem; 
+    line-height: 20px;
+    font-style: bold;
+}

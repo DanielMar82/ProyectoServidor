@@ -1,0 +1,61 @@
+.seccionVideos {
+    display: flex;
+    flex-direction: column;
+    /* gap: 60px; */
+    color: white;
+    align-items: center;
+}
+.seccionVideos .buscadorCanciones {
+    bottom: 0;
+}
+
+.tarjetaVideo {
+    display: flex;
+    flex-direction: row;
+    background-color: #4d0000;
+    padding: 60px;
+    justify-content: space-between;
+    border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    width: 1000px;
+    margin: 0px auto 60px;
+}
+.tarjetaVideo div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    max-width: 342px;
+    justify-content: center;
+}
+.tarjetaVideo div h1 {
+    font-size: 30px;
+}
+
+@media (max-width: 1100px) {
+    .tarjetaVideo {
+        flex-direction: column;
+        width: 80%;
+        align-items: center;
+        gap: 40px;
+    }
+    .tarjetaVideo iframe {
+        width: 100%;
+    }
+    /* .tarjetaVideo iframe {
+        width: 250px;
+        height: 250px;
+    }
+    .tarjetaVideo div h1 {
+        font-size: 20px;
+    } */
+}
+@media (max-width: 600px) {
+    .tarjetaVideo iframe {
+        width: 250px;
+        height: 250px;
+    }
+    .tarjetaVideo div h1 {
+        font-size: 20px;
+    }
+}

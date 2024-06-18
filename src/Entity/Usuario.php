@@ -35,9 +35,13 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: Cancion::class, inversedBy: 'usuarios')]
     private Collection $canciones;
 
+    #[ORM\OneToMany(mappedBy: 'usuario_id', targetEntity: Comentario::class)]
+    private Collection $comentarios;
+
     public function __construct()
     {
         $this->canciones = new ArrayCollection();
+        $this->comentarios = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -142,6 +146,36 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeCancione(Cancion $cancione): static
     {
         $this->canciones->removeElement($cancione);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comentario>
+     */
+    public function getComentarios(): Collection
+    {
+        return $this->comentarios;
+    }
+
+    public function addComentario(Comentario $comentario): static
+    {
+        if (!$this->comentarios->contains($comentario)) {
+            $this->comentarios->add($comentario);
+            $comentario->setUsuarioId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComentario(Comentario $comentario): static
+    {
+        if ($this->comentarios->removeElement($comentario)) {
+            // set the owning side to null (unless already changed)
+            if ($comentario->getUsuarioId() === $this) {
+                $comentario->setUsuarioId(null);
+            }
+        }
 
         return $this;
     }

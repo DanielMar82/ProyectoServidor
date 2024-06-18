@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Accesibilidad - Trabajo Proyecto</title>
+        <!-- Estilos CSS -->
+        <link rel="stylesheet" href="index.css">
+        <!-- Fuentes/Google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Rubik:wght@300&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <!-- FontAwesome -->
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    </head>
+    <body class="body">
+        <!-- MENU -->
+            <div include-html="Components/menu.html"></div>
+        <!-- CAMINO DE MIGAS -->
+        <div class="caminoMigas">
+            <ol>
+              <li class="migasAnt"><a href="index.html">Página principal</a></li>
+              <p>/</p>
+              <li class="migasAct">Mapa web</li>
+            </ol>
+        </div>
+        <!-- ACCESIBILIDAD -->
+        <div class="mapaWeb">
+            <div class="listaMapaWeb">
+                <ul>
+                    <li>
+                        <a href="Principal-Proyecto.html">Página principal</a>
+                        <ul>
+                            <li><a href="canciones-Proyecto.html">Canciones</a></li>
+                            <li><a href="login-Proyecto.html">Inicio sesión - Crear cuenta</a></li>
+                            <li><a href="accesibilidad-Proyecto.html">Página de accesibilidad</a></li>
+                            <li><a href="mapaWeb-Proyecto.html">Mapa web</a></li>
+                        </ul>
+                    </li>
+                    <br />
+                    <li>
+                        <a href="login-Proyecto.html">Inicio sesión - Crear cuenta</a>
+                        <ul>
+                            <li><a href="Principal-Proyecto.html">Página principal</a></li>
+                            <li><a href="canciones-Proyecto.html">Canciones</a></li>
+                            <li><a href="accesibilidad-Proyecto.html">Página de accesibilidad</a></li>
+                            <li><a href="mapaWeb-Proyecto.html">Mapa web</a></li>
+                        </ul>
+                    </li>
+                    <br />
+                    <li>
+                        <a href="canciones-Proyecto.html">Canciones</a>
+                        <ul>
+                            <li><a href="Principal-Proyecto.html">Página principal</a></li>
+                            <li><a href="login-Proyecto.html">Inicio sesión - Crear cuenta</a></li>
+                            <li><a href="accesibilidad-Proyecto.html">Página de accesibilidad</a></li>
+                            <li><a href="mapaWeb-Proyecto.html">Mapa web</a></li>
+                        </ul>
+                    </li>
+                    <br />
+                    <li>
+                        <a href="accesibilidad-Proyecto.html">Página de accesibilidad</a>
+                        <ul>
+                            <li><a href="Principal-Proyecto.html">Página principal</a></li>
+                            <li><a href="login-Proyecto.html">Inicio sesión - Crear cuenta</a></li>
+                            <li><a href="canciones-Proyecto.html">Canciones</a></li>
+                            <li><a href="mapaWeb-Proyecto.html">Mapa web</a></li>
+                        </ul>
+                    </li>
+                    <br />
+                    <li>
+                        <a href="mapaWeb-Proyecto.html">Mapa web</a>
+                        <ul>
+                            <li><a href="Principal-Proyecto.html">Página principal</a></li>
+                            <li><a href="login-Proyecto.html">Inicio sesión - Crear cuenta</a></li>
+                            <li><a href="canciones-Proyecto.html">Canciones</a></li>
+                            <li><a href="accesibilidad-Proyecto.html">Página de accesibilidad</a></li>
+                        </ul>
+                    </li>
+                    <br />
+                </ul> 
+            </div>   
+        </div>
+        <!-- PIE DE PÁGINA -->
+            <div include-html="Components/piePagina.html"></div>
+        <!-- Funcion Incluir JS -->
+        <script src="include-html.js"></script>
+    </body>
+</html>

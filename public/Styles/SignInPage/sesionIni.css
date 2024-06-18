@@ -1,0 +1,113 @@
+.seccionSesionIni {
+    display: flex;
+    flex-direction: column;
+    background-color: #4d0000;
+    color: white;
+    width: 1000px;
+    padding: 50px 80px;
+    margin: 20px auto 80px;
+    gap: 50px;
+    border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+.seccionSesionIni a {
+    text-decoration:none;
+    color: white;
+}
+.seccionSesionIni h1 {
+    font-size: 30px;
+}
+.seccionSesionIni main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.seccionSesionIni main div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+.seccionSesionIni main div i {
+    font-size: 100px;
+    margin: 0;
+}
+
+.formCambiarContra {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+.formCambiarContra > input {
+    width: 180px;
+}
+
+
+/* BORRAR CUENTA */
+.seccionBorrar {
+    display: flex;
+    flex-direction: column;
+    background-color: #4d0000;
+    color: white;
+    width: 600px;
+    padding: 50px 80px;
+    margin: 250px auto 180px;
+    gap: 50px;
+    border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    align-items: center;
+    text-align: center;
+}
+.seccionBorrar main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.seccionBorrar button {
+    border-radius: 20px;
+    padding: 8px 5px;
+    outline: none;
+    background-color: white;
+}
+
+@media only screen and (max-width: 1150px) {
+    .seccionSesionIni {
+        width: 85%;
+    }
+    .seccionSesionIni h1 {
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 720px) {
+    .seccionSesionIni main, .seccionSesionIni main div {
+        flex-direction: column;
+        text-align: center;
+    }
+    .seccionSesionIni main {
+        gap:20px;
+    }
+    .seccionSesionIni main div {
+        gap: 0px;
+    }
+    .seccionSesionIni footer {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}
+@media only screen and (max-width: 650px) {
+    .seccionBorrar {
+        width: 400px;
+    }
+    .seccionBorrar h2 {
+        font-size: 27px;
+    }
+    .seccionBorrar h3 {
+        font-size: 20px;
+    }
+}

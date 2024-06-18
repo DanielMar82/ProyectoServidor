@@ -30,6 +30,9 @@ class Cancion
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $ruta = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $instrumento = null;
+
     public function __construct()
     {
         $this->usuarios = new ArrayCollection();
@@ -111,6 +114,18 @@ class Cancion
     public function setRuta(?string $ruta): static
     {
         $this->ruta = $ruta;
+
+        return $this;
+    }
+
+    public function getInstrumento(): ?string
+    {
+        return $this->instrumento;
+    }
+
+    public function setInstrumento(string $instrumento): static
+    {
+        $this->instrumento = $instrumento;
 
         return $this;
     }
